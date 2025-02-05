@@ -68,3 +68,27 @@ export const deleteCar = async (req: Request, res: Response) => {
     }
   }
 };
+
+export const updateCar = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const { merk, model, bouwjaar, prijs, type, cilinderinhoud } = req.body;
+    const resp = await Car.findByIdAndUpdate(id, {
+      merk,
+      model,
+      bouwjaar,
+      prijs,
+      type,
+      cilinderinhoud,
+    });
+    res.status(200).json(resp);
+  } catch (error: unknown) {
+    if (error instanceof ValidationError) {
+      res.status(400).json({ message: error.message });
+    } else if (error instanceof Error) {
+      res.status(500).json({ message: error.message });
+    } else {
+      res.status(500).json({ message: "Something went wrong" });
+    }
+  }
+};
