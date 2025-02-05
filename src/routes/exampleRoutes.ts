@@ -5,12 +5,14 @@ import {
   addTodo,
   updateTodo,
 } from "../controllers/exampleController";
+import { createCar, getCar, getCarById } from "../controllers/carController";
 
 const router = express.Router();
 
 router
-  .get("/test", getHelloWorld)
-  .get("/todos", getTodos)
+  .get("/voertuig", getCar)
+  .get("/voertuig/:id", getCarById)
+  .post("/voertuig", createCar)
   .post("/todos", addTodo)
   .patch("/todos/:id", updateTodo);
 
