@@ -5,7 +5,9 @@ import { Car } from "../models/carModel";
 
 export const getCar = async (req: Request, res: Response) => {
   try {
-    const cars = await Car.find();
+    // hoe een filter toepassen op de getCar
+    console.log(req.query);
+    const cars = await Car.find(req.query);
     res.status(200).json(cars);
     // altijd de errors typen anders krijg je errors.
   } catch (error: unknown) {
