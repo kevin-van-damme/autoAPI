@@ -26,7 +26,7 @@ const carSchema = new mongoose.Schema(
     },
     cilinderinhoud: {
       type: Number,
-      required: function () {
+      required: function (this: any) {
         return this.type === "moto";
       },
     },

@@ -1,5 +1,4 @@
 import express from "express";
-import { addTodo, updateTodo } from "../controllers/exampleController";
 import {
   createCar,
   deleteCar,
@@ -11,10 +10,10 @@ import {
 const router = express.Router();
 
 router
-  .get("/voertuig", getCar)
-  .get("/voertuig/:id", getCarById)
-  .post("/voertuig", createCar)
-  .delete("/voertuig/:id", deleteCar)
-  .patch("/voertuig/:id", updateCar);
+  .get("/voertuigen", getCar)
+  .get("/voertuigen/:id", getCarById)
+  .post("/voertuigen", createCar)
+  .delete("/voertuigen/:id", deleteCar)
+  .patch("/voertuigen/:id", updateCar);
 
 export default router;
